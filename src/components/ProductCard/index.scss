@@ -1,0 +1,24 @@
+.productInfo {
+  padding: 0.5rem;
+}
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  font-size: medium;
+  font-weight: 700;
+}
+.Price {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  font-size: medium;
+  font-weight: 700;
+}
+.Rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  font-size: medium;
+  font-weight: 700;
+}
