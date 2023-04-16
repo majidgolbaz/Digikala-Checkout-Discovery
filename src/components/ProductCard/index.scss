@@ -4,7 +4,7 @@
 .title {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: start;
   font-size: medium;
   font-weight: 700;
 }
@@ -21,4 +21,8 @@
   justify-content: start;
   font-size: medium;
   font-weight: 700;
+}
+
+.RatingIcon {
+  color: aqua;
 }

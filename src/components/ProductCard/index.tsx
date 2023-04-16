@@ -1,10 +1,9 @@
 import React from "react";
 import "../ProductCard/index.scss";
-import StarRating from "../StarRating";
+import { TbStarFilled } from "react-icons/tb";
 
 interface IProductCardProps {
   customClass?: string;
-  
 }
 function ProductCard({ customClass = "" }: IProductCardProps) {
   return (
@@ -17,7 +16,7 @@ function ProductCard({ customClass = "" }: IProductCardProps) {
       <div className="productInfo">
         <span className="title">title</span>
         <div className="Rating">
-          <StarRating Rate={5} />
+          <TbStarFilled className="RatingIcon" />
         </div>
         <span className="Price">Price</span>
       </div>
