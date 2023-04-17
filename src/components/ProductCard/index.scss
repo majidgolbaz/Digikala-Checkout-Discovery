@@ -1,28 +1,109 @@
+.cardContainer {
+  border-radius: 2rem;
+}
 .productInfo {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 .title {
+  margin: 0.5rem 0;
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  font-size: medium;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
   font-weight: 700;
 }
-.Price {
+.description {
+  margin: 0.5rem 0;
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+  font-weight: 400;
+}
+.categoryContainer {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: medium;
+    font-weight: 500;
+    background-color: gold;
+    color: black;
+    border-radius: 0.5rem;
+  }
+}
+.addtocartContainer {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Price {
+  font-size: x-large;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 700;
+}
+.discountPercentage {
   font-size: medium;
   font-weight: 700;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: gold;
+  color: black;
+  border-radius: 1rem;
+  padding: 0 0.3rem;
 }
 .Rating {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
+  align-items: center;
   font-size: medium;
   font-weight: 700;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.tagIcon {
+  padding-right: 0.5rem;
+  color: black;
 }
 
 .RatingIcon {
-  color: aqua;
+  padding-right: 0.5rem;
+  color: gold;
+}
+.shoppingIcon {
+  padding-right: 0.5rem;
+  font-size: x-large;
+  color: black;
+}
+
+.btn {
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  border-width: 3px;
+  border-color: gold;
+  border-style: solid;
+  background-color: white;
+  font-size: medium;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn:hover {
+  color: black;
+  background-color: gold;
 }
