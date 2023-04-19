@@ -12,11 +12,15 @@ import NotFoundPage from "./pages/NotFound";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<ProductListPage />} />
+      <Route path="/products">
+        <Route index element={<ProductListPage />} />
+        <Route path=":id" element={<SingleProductPage />} />
+      </Route>
       <Route path="/cart" element={<CartPage />} />
-      <Route path="/playground/modal" element={<ModalPlayground />} />
-      <Route path="/playground/productCard" element={<ProductCardPage />} />
-      <Route path="/products/:id" element={<SingleProductPage />} />
+      <Route path="/playground">
+        <Route path="modal" element={<ModalPlayground />} />
+        <Route path="productCard" element={<ProductCardPage />} />
+      </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
