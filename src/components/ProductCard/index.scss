@@ -1,115 +1,277 @@
-.cardContainer {
-  border-radius: 2rem;
-  border: 1px solid gold;
-}
-.productInfo {
-  padding: 1rem;
-}
-.title {
-  margin: 0.5rem 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: x-large;
-  font-weight: 700;
-}
-.description {
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: medium;
-  font-weight: 400;
-}
-.categoryContainer {
-  margin: 0.5rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  span {
-    display: flex;
+$layout-breakpoint-Extra-small: 600px;
+$layout-breakpoint-small: 600px;
+$layout-breakpoint-medium: 768px;
+$layout-breakpoint-large: 992px;
+$layout-breakpoint-Extra-large: 1200px;
 
+@media (max-width: $layout-breakpoint-Extra-small) {
+  .cardContainer {
+    border-radius: 2rem;
+    border: 1px solid gold;
+    display: flex;
+    flex-direction: column;
+  }
+  .imageContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1.5;
+  }
+  .productImg {
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1.5;
+    border-radius: 2rem 2rem 0 0;
+  }
+  .productInfo {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .title {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 700;
+  }
+  .description {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    font-weight: 400;
+  }
+  .categoryContainer {
+    position: absolute;
+    right: 2%;
+    top: 85%;
+    span {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.3rem 0.5rem;
+      font-size: small;
+      font-weight: 500;
+      background-color: gold;
+      color: black;
+      border-radius: 0.5rem;
+    }
+  }
+  .addtocartContainer {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
+  }
+  .priceContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Price {
+    font-size: x-large;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-weight: 700;
+  }
+  .discountPercentage {
     font-size: medium;
-    font-weight: 500;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     background-color: gold;
     color: black;
+    border-radius: 1rem;
+    padding: 0.3rem 0.3rem;
+  }
+  .Rating {
+    position: absolute;
+    left: 2%;
+    top: 85%;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    font-size: medium;
+    font-weight: 700;
+    background-color: rgba(128, 128, 128, 0.514);
+    color: white;
     border-radius: 0.5rem;
   }
-}
-.addtocartContainer {
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.priceContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.Price {
-  font-size: x-large;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-weight: 700;
-}
-.discountPercentage {
-  font-size: medium;
-  font-weight: 700;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: gold;
-  color: black;
-  border-radius: 1rem;
-  padding: 0 0.3rem;
-}
-.Rating {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: medium;
-  font-weight: 700;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-.tagIcon {
-  padding-right: 0.5rem;
-  color: black;
+  .tagIcon {
+    padding-right: 0.5rem;
+    color: black;
+  }
+  
+  .RatingIcon {
+    padding-right: 0.5rem;
+    color: gold;
+  }
+  .shoppingIcon {
+    padding-right: 0.5rem;
+    font-size: x-large;
+    color: black;
+  }
+  
+  .btn {
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    border-width: 3px;
+    border-color: gold;
+    border-style: solid;
+    background-color: white;
+    font-size: medium;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn:hover {
+    color: black;
+    background-color: rgba(255, 217, 0, 0.658);
+  }
 }
 
-.RatingIcon {
-  padding-right: 0.5rem;
-  color: gold;
-}
-.shoppingIcon {
-  padding-right: 0.5rem;
-  font-size: x-large;
-  color: black;
-}
+@media (min-width: $layout-breakpoint-small) {
+  .cardContainer {
+    border-radius: 2rem;
+    border: 1px solid gold;
+    display: flex;
+    flex-direction: column;
+  }
+  .imageContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1.5;
+  }
+  .productImg {
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1.5;
+    border-radius: 2rem 2rem 0 0;
+  }
+  .productInfo {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .title {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 700;
+  }
+  .description {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    font-weight: 400;
+  }
+  .categoryContainer {
+    position: absolute;
+    right: 2%;
+    top: 85%;
+    span {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.3rem 0.5rem;
+      font-size: small;
+      font-weight: 500;
+      background-color: gold;
+      color: black;
+      border-radius: 0.5rem;
+    }
+  }
+  .addtocartContainer {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .priceContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Price {
+    font-size: x-large;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-weight: 700;
+  }
+  .discountPercentage {
+    font-size: medium;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: gold;
+    color: black;
+    border-radius: 1rem;
+    padding: 0.3rem 0.3rem;
+  }
+  .Rating {
+    position: absolute;
+    left: 2%;
+    top: 85%;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    font-size: medium;
+    font-weight: 700;
+    background-color: rgba(128, 128, 128, 0.514);
+    color: white;
+    border-radius: 0.5rem;
+  }
+  .tagIcon {
+    padding-right: 0.5rem;
+    color: black;
+  }
 
-.btn {
-  padding: 1rem 3rem;
-  border-radius: 1rem;
-  border-width: 3px;
-  border-color: gold;
-  border-style: solid;
-  background-color: white;
-  font-size: medium;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.btn:hover {
-  color: black;
-  background-color: gold;
-}
+  .RatingIcon {
+    padding-right: 0.5rem;
+    color: gold;
+  }
+  .shoppingIcon {
+    padding-right: 0.5rem;
+    font-size: x-large;
+    color: black;
+  }
 
-.productImg {
-  border-radius: 2rem 2rem 0 0;
+  .btn {
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    border-width: 3px;
+    border-color: gold;
+    border-style: solid;
+    background-color: white;
+    font-size: medium;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn:hover {
+    color: black;
+    background-color: rgba(255, 217, 0, 0.658);
+  }
 }

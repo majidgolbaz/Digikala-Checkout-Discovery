@@ -25,10 +25,8 @@ function ProductCard({
 }: IProductCardProps) {
   return (
     <div className="cardContainer">
-      <img className="productImg" src={imageUrl} width="100%" height="300rem" />
-      <div className="productInfo">
-        <span className="title">{title}</span>
-        <span className="description">{description}</span>
+      <div className="imageContainer">
+        <img className="productImg" src={imageUrl} />
         <div className="categoryContainer">
           <span>
             <TiTags className="tagIcon" />
@@ -38,6 +36,13 @@ function ProductCard({
         <div className="Rating">
           <TbStarFilled className="RatingIcon" />
           <span>{productRating}</span>
+        </div>
+      </div>
+
+      <div className="productInfo">
+        <div>
+          <span className="title">{title}</span>
+          <span className="description">{description}</span>
         </div>
         <div className="addtocartContainer">
           <div className="priceContainer">

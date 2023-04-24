@@ -6,7 +6,7 @@ interface IProductListPageProps {
   customClass?: string;
 }
 
-interface IProductItemsProps {
+interface IProduct {
   id: number;
   title: string;
   description: string;
@@ -18,7 +18,7 @@ interface IProductItemsProps {
 }
 
 function ProductListPage({ customClass = "" }: IProductListPageProps) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -26,7 +26,7 @@ function ProductListPage({ customClass = "" }: IProductListPageProps) {
     fetch(`https://dummyjson.com/products`)
       .then((response) => response.json())
       .then((products) => {
-        setData(products.products);
+        setData(products.products as IProduct[]);
         setError(null);
         console.log(products.products);
       })
@@ -45,30 +45,19 @@ function ProductListPage({ customClass = "" }: IProductListPageProps) {
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
-      {data.map(
-        ({
-          id,
-          title,
-          description,
-          thumbnail,
-          price,
-          rating,
-          category,
-          discountPercentage,
-        }) => (
-          <ProductCard
-            customClass="grid-container"
-            key={id}
-            price={price}
-            imageUrl={thumbnail}
-            title={title}
-            description={description}
-            productCategory={category}
-            productRating={rating}
-            discountPercentage={discountPercentage}
-          />
-        )
-      )}
+      {data.map((product) => (
+        <ProductCard
+          customClass="grid-container"
+          key={product.id}
+          price={product.price}
+          imageUrl={product.thumbnail}
+          title={product.title}
+          description={product.description}
+          productCategory={product.category}
+          productRating={product.rating}
+          discountPercentage={product.discountPercentage}
+        />
+      ))}
     </div>
   );
 }
