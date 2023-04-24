@@ -7,7 +7,15 @@ interface IProductCardPageProps {
 function ProductCardPage({ customClass = "" }: IProductCardPageProps) {
   return (
     <div className={customClass}>
-      <ProductCard />
+      <ProductCard
+        description="sss"
+        discountPercentage={15}
+        imageUrl="sss"
+        price={2000}
+        productCategory="as"
+        productRating={12}
+        title="as"
+      />
     </div>
   );
 }
