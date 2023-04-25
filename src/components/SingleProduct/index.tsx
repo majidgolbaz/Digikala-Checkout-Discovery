@@ -1,6 +1,6 @@
 import React from "react";
 import "../SingleProduct/index.scss";
-import { TiTags } from "react-icons/ti";
+import { TiShoppingCart, TiTags } from "react-icons/ti";
 import { TbStarFilled } from "react-icons/tb";
 
 interface ISingleProductProps {
@@ -32,7 +32,10 @@ function SingleProduct({ customClass = "" }: ISingleProductProps) {
             <span className="">5.2</span>
           </div>
         </div>
-        <button>add to cart</button>
+        <button className="btn">
+            <TiShoppingCart className="shoppingIcon" />
+            Add to Cart
+          </button>
       </div>
     </div>
   );
