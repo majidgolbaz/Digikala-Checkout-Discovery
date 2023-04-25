@@ -26,7 +26,7 @@ function ProductCard({
   return (
     <div className="cardContainer">
       <div className="imageContainer">
-        <img className="productImg" src={imageUrl} />
+        <img className="productImg" src={imageUrl} alt="" />
         <div className="categoryContainer">
           <span>
             <TiTags className="tagIcon" />
