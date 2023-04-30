@@ -8,7 +8,7 @@ interface IProductListPageProps {
   customClass?: string;
 }
 
-interface IProducts {
+export interface IProduct {
   id: number;
   title: string;
   description: string;
@@ -20,7 +20,7 @@ interface IProducts {
 }
 
 function ProductListPage({ customClass = "" }: IProductListPageProps) {
-  const [products, setProducts] = useState<IProducts[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -55,17 +55,7 @@ function ProductListPage({ customClass = "" }: IProductListPageProps) {
       )}
       {products.map((product, index) => (
         <Link to={`/products/${product.id}`}>
-          <ProductCard
-            customClass="grid-container"
-            key={product.id + index}
-            price={product.price}
-            imageUrl={product.thumbnail}
-            title={product.title}
-            description={product.description}
-            productCategory={product.category}
-            productRating={product.rating}
-            discountPercentage={product.discountPercentage}
-          />
+          <ProductCard product={product} />
         </Link>
       ))}
     </div>

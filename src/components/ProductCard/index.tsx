@@ -1,41 +1,46 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../store";
 import "../ProductCard/index.scss";
 import { TbStarFilled } from "react-icons/tb";
 import { TiShoppingCart, TiTags } from "react-icons/ti";
+import { IProduct } from "../../pages/ProductList";
 
 export interface IProductCardProps {
+  product: IProduct;
   customClass?: string;
-  imageUrl: string;
-  title: string;
-  description: string;
-  productCategory: string;
-  productRating: number;
-  price: number;
-  discountPercentage: number;
 }
-function ProductCard({
-  customClass = "",
-  imageUrl,
-  title,
-  description,
-  productCategory,
-  productRating,
-  price,
-  discountPercentage,
-}: IProductCardProps) {
+function ProductCard({ customClass = "", product }: IProductCardProps) {
+  const {
+    category,
+    description,
+    discountPercentage,
+    id,
+    price,
+    rating,
+    thumbnail,
+    title,
+  } = product;
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    // dispatch(addProduct({}));
+  };
+
   return (
     <div className="cardContainer">
       <div className="imageContainer">
-        <img className="productImg" src={imageUrl} alt="" />
+        <img className="productImg" src={thumbnail} alt="" />
         <div className="categoryContainer">
           <span>
             <TiTags className="tagIcon" />
-            {productCategory}
+            {category}
           </span>
         </div>
         <div className="Rating">
           <TbStarFilled className="RatingIcon" />
-          <span>{productRating}</span>
+          <span>{rating}</span>
         </div>
       </div>
 
@@ -49,7 +54,7 @@ function ProductCard({
             <span className="Price">$ {price}</span>
             <span className="discountPercentage">% {discountPercentage}</span>
           </div>
-          <button className="btn">
+          <button className="btn" onClick={handleAddToCart}>
             <TiShoppingCart className="shoppingIcon" />
             Add to Cart
           </button>

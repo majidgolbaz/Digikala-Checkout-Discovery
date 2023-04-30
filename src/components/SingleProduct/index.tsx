@@ -2,7 +2,7 @@ import React from "react";
 import "../SingleProduct/index.scss";
 import { TiShoppingCart, TiTags } from "react-icons/ti";
 import { TbStarFilled } from "react-icons/tb";
-import { ISingleProductProps } from "../../utils/types";
+import { IProductProps } from "../../utils/types";
 
 function SingleProduct({
   customClass = "",
@@ -14,7 +14,7 @@ function SingleProduct({
   rating,
   stock,
   thumbnail,
-}: ISingleProductProps) {
+}: IProductProps) {
   return (
     <div className={`${customClass} mainContainer`}>
       <div className="productImageContainer">
