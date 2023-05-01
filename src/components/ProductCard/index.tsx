@@ -1,41 +1,59 @@
 import React from "react";
+import { useAppDispatch } from "../../store/hooks";
 import "../ProductCard/index.scss";
-import { TbStarFilled } from "react-icons/tb";
+import { IProductProps } from "../../utils/types";
 import { TiShoppingCart, TiTags } from "react-icons/ti";
+import { TbStarFilled } from "react-icons/tb";
+import { addProduct } from "../../store";
 
 export interface IProductCardProps {
+  product: IProductProps;
   customClass?: string;
-  imageUrl: string;
-  title: string;
-  description: string;
-  productCategory: string;
-  productRating: number;
-  price: number;
-  discountPercentage: number;
 }
-function ProductCard({
-  customClass = "",
-  imageUrl,
-  title,
-  description,
-  productCategory,
-  productRating,
-  price,
-  discountPercentage,
-}: IProductCardProps) {
+function ProductCard({ customClass = "", product }: IProductCardProps) {
+  const {
+    category,
+    stock,
+    description,
+    discountPercentage,
+    id,
+    price,
+    rating,
+    thumbnail,
+    title,
+  } = product;
+
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(
+      addProduct({
+        id: id,
+        title: title,
+        description: description,
+        category: category,
+        price: price,
+        discountPercentage: discountPercentage,
+        stock: stock,
+        rating: rating,
+        thumbnail: thumbnail,
+      })
+    );
+  };
+
   return (
     <div className="cardContainer">
       <div className="imageContainer">
-        <img className="productImg" src={imageUrl} alt="" />
+        <img className="productImg" src={thumbnail} alt="" />
         <div className="categoryContainer">
           <span>
             <TiTags className="tagIcon" />
-            {productCategory}
+            {category}
           </span>
         </div>
         <div className="Rating">
           <TbStarFilled className="RatingIcon" />
-          <span>{productRating}</span>
+          <span>{rating}</span>
         </div>
       </div>
 
@@ -49,7 +67,7 @@ function ProductCard({
             <span className="Price">$ {price}</span>
             <span className="discountPercentage">% {discountPercentage}</span>
           </div>
-          <button className="btn">
+          <button className="btn" type="button" onClick={handleAddToCart}>
             <TiShoppingCart className="shoppingIcon" />
             Add to Cart
           </button>

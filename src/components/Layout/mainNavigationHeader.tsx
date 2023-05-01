@@ -12,7 +12,7 @@ function MainNavigationHeader({
       <nav>
         <ul>
           <li>
-            <Link to="/product">Product List</Link>
+            <Link to="/products">Product List</Link>
           </li>
           <li>
             <Link to="/cart">Cart</Link>
