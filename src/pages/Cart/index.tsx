@@ -6,12 +6,16 @@ interface ICartPageProps {
 }
 function CartPage({ customClass = "" }: ICartPageProps) {
   const products = useAppSelector((state) => {
-    console.log(state);
     return state.products.products;
   });
-  console.log(products);
 
-  return <div className={customClass}>CartPage</div>;
+  return (
+    <div className={customClass}>
+      {products.map((product) => (
+        <div>{product.category}</div>
+      ))}
+    </div>
+  );
 }
 
 export default CartPage;

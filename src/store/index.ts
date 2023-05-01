@@ -34,3 +34,7 @@ export type AppDispatch = typeof store.dispatch;
 
 export { store };
 export const { addProduct } = productsSlice.actions;
+
+export const selectProduct = (state: RootState) => state.products.products;
+
+export default productsSlice.reducer;
