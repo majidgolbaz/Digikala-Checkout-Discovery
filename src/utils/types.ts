@@ -11,6 +11,3 @@ export interface IProductProps {
   "thumbnail": string;
 }
 
-export interface IProductArray {
-  productList: IProductProps[];
-}

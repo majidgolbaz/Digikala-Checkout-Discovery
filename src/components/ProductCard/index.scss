@@ -110,7 +110,7 @@ $layout-breakpoint-Extra-large: 1200px;
     padding-right: 0.5rem;
     color: black;
   }
-  
+
   .RatingIcon {
     padding-right: 0.5rem;
     color: gold;
@@ -120,7 +120,7 @@ $layout-breakpoint-Extra-large: 1200px;
     font-size: x-large;
     color: black;
   }
-  
+
   .btn {
     padding: 1rem 1rem;
     border-radius: 1rem;
@@ -133,6 +133,7 @@ $layout-breakpoint-Extra-large: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
   .btn:hover {
     color: black;

@@ -1,26 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import "../ProductList/index.scss";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { IProductProps } from "../../utils/types";
 
 interface IProductListPageProps {
   customClass?: string;
 }
 
-export interface IProduct {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  category: string;
-  thumbnail: string;
-  rating: number;
-}
-
 function ProductListPage({ customClass = "" }: IProductListPageProps) {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [products, setProducts] = useState<IProductProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -53,7 +42,7 @@ function ProductListPage({ customClass = "" }: IProductListPageProps) {
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
-      {products.map((product, index) => (
+      {products.map((product) => (
         <Link to={`/products/${product.id}`}>
           <ProductCard product={product} />
         </Link>

@@ -1,18 +1,19 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { addProduct } from "../../store";
+import { useAppDispatch } from "../../store/hooks";
 import "../ProductCard/index.scss";
-import { TbStarFilled } from "react-icons/tb";
+import { IProductProps } from "../../utils/types";
 import { TiShoppingCart, TiTags } from "react-icons/ti";
-import { IProduct } from "../../pages/ProductList";
+import { TbStarFilled } from "react-icons/tb";
+import { addProduct } from "../../store";
 
 export interface IProductCardProps {
-  product: IProduct;
+  product: IProductProps;
   customClass?: string;
 }
 function ProductCard({ customClass = "", product }: IProductCardProps) {
   const {
     category,
+    stock,
     description,
     discountPercentage,
     id,
@@ -22,10 +23,22 @@ function ProductCard({ customClass = "", product }: IProductCardProps) {
     title,
   } = product;
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleAddToCart = () => {
-    // dispatch(addProduct({}));
+    dispatch(
+      addProduct({
+        id: id,
+        title: title,
+        description: description,
+        category: category,
+        price: price,
+        discountPercentage: discountPercentage,
+        stock: stock,
+        rating: rating,
+        thumbnail: thumbnail,
+      })
+    );
   };
 
   return (
@@ -54,7 +67,7 @@ function ProductCard({ customClass = "", product }: IProductCardProps) {
             <span className="Price">$ {price}</span>
             <span className="discountPercentage">% {discountPercentage}</span>
           </div>
-          <button className="btn" onClick={handleAddToCart}>
+          <button className="btn" type="button" onClick={handleAddToCart}>
             <TiShoppingCart className="shoppingIcon" />
             Add to Cart
           </button>

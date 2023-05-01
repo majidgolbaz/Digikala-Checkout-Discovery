@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import SingleProduct from "../../components/SingleProduct";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import { ISingleProductProps } from "../../utils/types";
+
+import { IProductProps } from "../../utils/types";
 import "../SingleProduct/index.scss";
 
 interface ISingleProductPageProps {
@@ -11,7 +11,7 @@ interface ISingleProductPageProps {
 
 function SingleProductPage({ customClass = "" }: ISingleProductPageProps) {
   const { id } = useParams();
-  const [product, setProduct] = useState<ISingleProductProps>();
+  const [product, setProduct] = useState<IProductProps>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
