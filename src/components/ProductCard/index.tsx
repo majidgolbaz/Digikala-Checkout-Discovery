@@ -4,7 +4,7 @@ import "../ProductCard/index.scss";
 import { IProductProps } from "../../utils/types";
 import { TiShoppingCart, TiTags } from "react-icons/ti";
 import { TbStarFilled } from "react-icons/tb";
-import { addProduct } from "../../store";
+import { addProduct } from "../../store/store";
 
 export interface IProductCardProps {
   product: IProductProps;

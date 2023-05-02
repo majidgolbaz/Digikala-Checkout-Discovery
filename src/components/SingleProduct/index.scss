@@ -35,7 +35,7 @@
 
 .productCategoryContainer {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   span {
     display: flex;
     justify-content: flex-start;
@@ -71,7 +71,7 @@
 }
 .productRatingContainer {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin: 2rem 0;
 }
 .RatingIcon {

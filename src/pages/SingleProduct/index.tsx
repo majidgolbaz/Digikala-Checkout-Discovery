@@ -37,7 +37,7 @@ function SingleProductPage({ customClass = "" }: ISingleProductPageProps) {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className={`${customClass} mainConatiner `}>
