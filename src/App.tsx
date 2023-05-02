@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.scss";
-import ProductCard from "./components/ProductCard";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ProductListPage from "./pages/ProductList";
 import ModalPlayground from "./pages/Playground/modal";
 import ProductCardPage from "./pages/Playground/productCard";
