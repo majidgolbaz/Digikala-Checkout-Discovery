@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { IProductProps } from "../../utils/types";
 import "../SingleProduct/index.scss";
+import { useGetSingleProductQuery } from "../../store/api/products/productAPI";
 
 interface ISingleProductPageProps {
   customClass?: string;
@@ -11,49 +12,24 @@ interface ISingleProductPageProps {
 
 function SingleProductPage({ customClass = "" }: ISingleProductPageProps) {
   const { id } = useParams();
-  const [product, setProduct] = useState<IProductProps>();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch(`https://dummyjson.com/products/${id}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((productData) => {
-        setProduct(productData);
-        console.log(productData);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setProduct(undefined);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [id]);
+  const { data, isLoading, error } = useGetSingleProductQuery(`${id}`);
+  console.log(data);
 
   return (
     <div className={`${customClass} mainConatiner `}>
-      {loading && <div>A moment please...</div>}
+      {isLoading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
       <SingleProduct
-        thumbnail={product?.thumbnail ?? ""}
-        category={product?.category ?? ""}
-        description={product?.description ?? ""}
-        discountPercentage={product?.discountPercentage ?? 0}
-        price={product?.price ?? 0}
-        rating={product?.rating ?? 0}
-        stock={product?.stock ?? 0}
-        title={product?.title ?? ""}
+        thumbnail={data?.thumbnail ?? ""}
+        category={data?.category ?? ""}
+        description={data?.description ?? ""}
+        discountPercentage={data?.discountPercentage ?? 0}
+        price={data?.price ?? 0}
+        rating={data?.rating ?? 0}
+        stock={data?.stock ?? 0}
+        title={data?.title ?? ""}
       />
     </div>
   );
