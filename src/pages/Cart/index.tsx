@@ -5,9 +5,7 @@ interface ICartPageProps {
   customClass?: string;
 }
 function CartPage({ customClass = "" }: ICartPageProps) {
-  const products = useAppSelector((state) => {
-    return state.products.products;
-  });
+  const products = useAppSelector((state) => state.products.products);
 
   return (
     <div className={customClass}>

@@ -11,10 +11,10 @@ function MainNavigationHeader({
     <div className={customClass}>
       <nav>
         <ul>
-          <li>
+          <li key={1}>
             <Link to="/products">Product List</Link>
           </li>
-          <li>
+          <li key={2}>
             <Link to="/cart">Cart</Link>
           </li>
         </ul>
