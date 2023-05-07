@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import "../ProductList/index.scss";
 import { Link } from "react-router-dom";
@@ -11,9 +11,10 @@ interface IProductListPageProps {
 
 function ProductListPage({ customClass = "" }: IProductListPageProps) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [skip, setSkip] = useState(0);
 
- 
-  const { data, isLoading, error } = useGetAllProductsQuery(2);
+  const { data, isLoading, error } = useGetAllProductsQuery(skip);
+  console.log(data);
 
   return (
     <div className="grid-container">
@@ -26,9 +27,15 @@ function ProductListPage({ customClass = "" }: IProductListPageProps) {
           <ProductCard product={product} />
         </Link>
       ))}
-      <Pagination currentPage={0} pageSize={9} totalCount={data?.total ?? 0} siblingCount={2} onPageChange={function (pageNumber: number): void {
-        throw new Error("Function not implemented.");
-      } }/>
+      <Pagination
+        currentPage={currentPage}
+        limit={9}
+        totalCount={data?.total ?? 0}
+        onPageChange={(page) => {
+          setSkip((page - 1) * 9);
+          setCurrentPage(page);
+        }}
+      />
     </div>
   );
 }
