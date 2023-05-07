@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IActualData, IProductProps } from "../../../utils/types";
-import { useParams } from "react-router-dom";
 
 const BASE_URL = "https://dummyjson.com";
 
@@ -10,8 +9,8 @@ export const productApi = createApi({
   tagTypes: ["Products"],
   endpoints: (builder) => ({
     // ? Query: Get All Products
-    getAllProducts: builder.query<IActualData, void>({
-      query: () => "/products",
+    getAllProducts: builder.query<IActualData, number>({
+      query: (skip) => `/products?skip=${skip}&limit=9 `,
     }),
     // ? Query: Get a single product
     getSingleProduct: builder.query<IProductProps, string>({

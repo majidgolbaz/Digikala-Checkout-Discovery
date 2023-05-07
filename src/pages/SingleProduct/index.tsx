@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
 import SingleProduct from "../../components/SingleProduct";
 import { useParams } from "react-router-dom";
 
-import { IProductProps } from "../../utils/types";
 import "../SingleProduct/index.scss";
 import { useGetSingleProductQuery } from "../../store/api/products/productAPI";
 
