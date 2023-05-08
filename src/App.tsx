@@ -7,7 +7,7 @@ import ProductCardPage from "./pages/Playground/productCard";
 import CartPage from "./pages/Cart";
 import SingleProductPage from "./pages/SingleProduct";
 import NotFoundPage from "./pages/NotFound";
-import MainNavigationHeader from "./components/Layout/mainNavigationHeader";
+import MainNavigationHeader from "./components/Layout/navBar";
 
 function App() {
   return (

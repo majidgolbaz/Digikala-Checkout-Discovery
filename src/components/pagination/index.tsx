@@ -1,7 +1,6 @@
 import React from "react";
 import clsx from "clsx";
 import "../pagination/index.scss";
-import { usePagination } from "../../hooks/usePagination";
 
 interface IPaginationProps {
   customClass?: string;
